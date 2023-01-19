@@ -1,0 +1,19 @@
+{
+  "name": "e-commerce-webapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \" wsrun --parallel dev \"",
+    "start": "concurrently \" wsrun --parallel start \" "
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "wsrun": "^5.2.4"
+  },
+  "workspaces": [
+    "server",
+    "client"
+  ]
+}
