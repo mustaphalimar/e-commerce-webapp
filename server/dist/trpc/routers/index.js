@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.appRouter = void 0;
-const index_1 = require("../index");
+const trpc_1 = require("../trpc");
 const product_1 = require("./product");
-exports.appRouter = (0, index_1.mergeRouters)(product_1.productRouter);
+exports.appRouter = (0, trpc_1.mergeRouters)(product_1.productRouter);

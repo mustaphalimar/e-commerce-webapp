@@ -1,5 +1,5 @@
-import { mergeRouters } from '../index';
+import { mergeRouters } from "../trpc";
 
-import { productRouter } from './product';
+import { productRouter } from "./product";
 
 export const appRouter = mergeRouters(productRouter);
