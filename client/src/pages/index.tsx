@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { trpc } from "utils/trpc";
+import { trpc } from "@/utils/trpc";
 
 export default function Home() {
   const hello = trpc.getProductByID.useQuery({ id: 7 });
@@ -21,7 +21,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Hello </h1>
+        <h1>Hello {hello.data && hello.data}</h1>
       </main>
     </>
   );

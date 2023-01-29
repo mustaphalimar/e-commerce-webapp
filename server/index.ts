@@ -4,19 +4,23 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 dotenv.config();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 const app = express();
 
 import { appRouter } from "./trpc/routers";
 export type AppRouter = typeof appRouter;
 
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    credentials: true,
+  })
+);
+
 async function main() {
-  app.use(
-    cors({
-      origin: ["http://localhost:3000"],
-      credentials: true,
-    })
-  );
+  app.get("/", (req, res) => {
+    res.send("Hello From The Server.");
+  });
 
   app.use(
     "/trpc",
@@ -24,10 +28,6 @@ async function main() {
       router: appRouter,
     })
   );
-
-  app.get("/", (req, res) => {
-    res.send("Hello From The Server.");
-  });
 
   app.listen(PORT, () => {
     console.log(`Server Started on Port : ${PORT}`);

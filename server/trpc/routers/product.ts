@@ -6,6 +6,6 @@ export const productRouter = router({
   getProductByID: publicProcedure
     .input(z.object({ id: z.number() }))
     .query(({ input }) => {
-      return `This is your product ${input.id}`;
+      return `This is your product : ${input.id}`;
     }),
 });
